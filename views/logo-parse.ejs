@@ -1,11 +1,17 @@
-<section class="p-4">
+<section class="p-4 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <h3>Image details on the site <a href="<% url %>"><%= url %></a></h3>
+                <h3>Image details on the site <a href="<%= url %>"><%= url %></a></h3>
             </div>
             <div class="col-10 my-4">
-                
+                <% if( isError ) { %>
+                    <p>Not able to parse the url. Please <a href="/">try again</a></p>
+                <% } else { %>
+                    <p class="mb-3"><b>Logo URL:</b> <%= logoURL %></p>
+                    <div class="parsed-logo mb-3"><img src="<%= logoURL %>" alt=""></div>
+                    <a href="/">< Back</a>
+                <% } %>
             </div>
         </div>
     </div>
